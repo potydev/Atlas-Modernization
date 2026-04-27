@@ -1,0 +1,47 @@
+[
+  { "country": "United States", "code": "US", "values": [
+    {"year": 2000, "gdp": 10252}, {"year": 2002, "gdp": 10936}, {"year": 2004, "gdp": 12213}, {"year": 2006, "gdp": 13815}, {"year": 2008, "gdp": 14769}, {"year": 2010, "gdp": 14992}, {"year": 2012, "gdp": 16197}, {"year": 2014, "gdp": 17527}, {"year": 2016, "gdp": 18745}, {"year": 2018, "gdp": 20533}, {"year": 2020, "gdp": 21060}, {"year": 2022, "gdp": 25462}, {"year": 2024, "gdp": 28750}
+  ]},
+  { "country": "China", "code": "CN", "values": [
+    {"year": 2000, "gdp": 1211}, {"year": 2002, "gdp": 1471}, {"year": 2004, "gdp": 1955}, {"year": 2006, "gdp": 2752}, {"year": 2008, "gdp": 4594}, {"year": 2010, "gdp": 6087}, {"year": 2012, "gdp": 8560}, {"year": 2014, "gdp": 10482}, {"year": 2016, "gdp": 11233}, {"year": 2018, "gdp": 13894}, {"year": 2020, "gdp": 14688}, {"year": 2022, "gdp": 17963}, {"year": 2024, "gdp": 19200}
+  ]},
+  { "country": "Japan", "code": "JP", "values": [
+    {"year": 2000, "gdp": 4887}, {"year": 2002, "gdp": 4115}, {"year": 2004, "gdp": 4655}, {"year": 2006, "gdp": 4530}, {"year": 2008, "gdp": 5038}, {"year": 2010, "gdp": 5700}, {"year": 2012, "gdp": 6203}, {"year": 2014, "gdp": 4850}, {"year": 2016, "gdp": 4923}, {"year": 2018, "gdp": 4955}, {"year": 2020, "gdp": 5040}, {"year": 2022, "gdp": 4231}, {"year": 2024, "gdp": 4400}
+  ]},
+  { "country": "Germany", "code": "DE", "values": [
+    {"year": 2000, "gdp": 1949}, {"year": 2002, "gdp": 2079}, {"year": 2004, "gdp": 2729}, {"year": 2006, "gdp": 2994}, {"year": 2008, "gdp": 3745}, {"year": 2010, "gdp": 3396}, {"year": 2012, "gdp": 3527}, {"year": 2014, "gdp": 3879}, {"year": 2016, "gdp": 3467}, {"year": 2018, "gdp": 3947}, {"year": 2020, "gdp": 3846}, {"year": 2022, "gdp": 4072}, {"year": 2024, "gdp": 4500}
+  ]},
+  { "country": "India", "code": "IN", "values": [
+    {"year": 2000, "gdp": 468}, {"year": 2002, "gdp": 515}, {"year": 2004, "gdp": 710}, {"year": 2006, "gdp": 949}, {"year": 2008, "gdp": 1224}, {"year": 2010, "gdp": 1676}, {"year": 2012, "gdp": 1828}, {"year": 2014, "gdp": 2039}, {"year": 2016, "gdp": 2295}, {"year": 2018, "gdp": 2702}, {"year": 2020, "gdp": 2660}, {"year": 2022, "gdp": 3385}, {"year": 2024, "gdp": 3900}
+  ]},
+  { "country": "South Korea", "code": "KR", "values": [
+    {"year": 2000, "gdp": 562}, {"year": 2002, "gdp": 609}, {"year": 2004, "gdp": 765}, {"year": 2006, "gdp": 1012}, {"year": 2008, "gdp": 1002}, {"year": 2010, "gdp": 1094}, {"year": 2012, "gdp": 1223}, {"year": 2014, "gdp": 1411}, {"year": 2016, "gdp": 1415}, {"year": 2018, "gdp": 1619}, {"year": 2020, "gdp": 1638}, {"year": 2022, "gdp": 1665}, {"year": 2024, "gdp": 1750}
+  ]},
+  { "country": "Brazil", "code": "BR", "values": [
+    {"year": 2000, "gdp": 655}, {"year": 2002, "gdp": 509}, {"year": 2004, "gdp": 666}, {"year": 2006, "gdp": 1089}, {"year": 2008, "gdp": 1696}, {"year": 2010, "gdp": 2209}, {"year": 2012, "gdp": 2466}, {"year": 2014, "gdp": 2456}, {"year": 2016, "gdp": 1796}, {"year": 2018, "gdp": 1868}, {"year": 2020, "gdp": 1449}, {"year": 2022, "gdp": 1920}, {"year": 2024, "gdp": 2100}
+  ]},
+  { "country": "Indonesia", "code": "ID", "values": [
+    {"year": 2000, "gdp": 165}, {"year": 2002, "gdp": 195}, {"year": 2004, "gdp": 257}, {"year": 2006, "gdp": 364}, {"year": 2008, "gdp": 510}, {"year": 2010, "gdp": 755}, {"year": 2012, "gdp": 878}, {"year": 2014, "gdp": 890}, {"year": 2016, "gdp": 932}, {"year": 2018, "gdp": 1042}, {"year": 2020, "gdp": 1059}, {"year": 2022, "gdp": 1319}, {"year": 2024, "gdp": 1450}
+  ]},
+  { "country": "Singapore", "code": "SG", "values": [
+    {"year": 2000, "gdp": 96}, {"year": 2002, "gdp": 91}, {"year": 2004, "gdp": 115}, {"year": 2006, "gdp": 148}, {"year": 2008, "gdp": 192}, {"year": 2010, "gdp": 239}, {"year": 2012, "gdp": 295}, {"year": 2014, "gdp": 307}, {"year": 2016, "gdp": 318}, {"year": 2018, "gdp": 364}, {"year": 2020, "gdp": 339}, {"year": 2022, "gdp": 397}, {"year": 2024, "gdp": 430}
+  ]},
+  { "country": "Estonia", "code": "EE", "values": [
+    {"year": 2000, "gdp": 6}, {"year": 2002, "gdp": 8}, {"year": 2004, "gdp": 12}, {"year": 2006, "gdp": 17}, {"year": 2008, "gdp": 24}, {"year": 2010, "gdp": 19}, {"year": 2012, "gdp": 23}, {"year": 2014, "gdp": 26}, {"year": 2016, "gdp": 24}, {"year": 2018, "gdp": 30}, {"year": 2020, "gdp": 31}, {"year": 2022, "gdp": 38}, {"year": 2024, "gdp": 42}
+  ]},
+  { "country": "Rwanda", "code": "RW", "values": [
+    {"year": 2000, "gdp": 1.8}, {"year": 2002, "gdp": 2.0}, {"year": 2004, "gdp": 2.4}, {"year": 2006, "gdp": 3.1}, {"year": 2008, "gdp": 4.3}, {"year": 2010, "gdp": 5.6}, {"year": 2012, "gdp": 7.1}, {"year": 2014, "gdp": 7.9}, {"year": 2016, "gdp": 8.9}, {"year": 2018, "gdp": 9.7}, {"year": 2020, "gdp": 10.3}, {"year": 2022, "gdp": 13.3}, {"year": 2024, "gdp": 14.5}
+  ]},
+  { "country": "Israel", "code": "IL", "values": [
+    {"year": 2000, "gdp": 132}, {"year": 2002, "gdp": 118}, {"year": 2004, "gdp": 140}, {"year": 2006, "gdp": 161}, {"year": 2008, "gdp": 217}, {"year": 2010, "gdp": 233}, {"year": 2012, "gdp": 257}, {"year": 2014, "gdp": 305}, {"year": 2016, "gdp": 318}, {"year": 2018, "gdp": 370}, {"year": 2020, "gdp": 402}, {"year": 2022, "gdp": 522}, {"year": 2024, "gdp": 560}
+  ]},
+  { "country": "UAE", "code": "AE", "values": [
+    {"year": 2000, "gdp": 104}, {"year": 2002, "gdp": 110}, {"year": 2004, "gdp": 148}, {"year": 2006, "gdp": 222}, {"year": 2008, "gdp": 345}, {"year": 2010, "gdp": 298}, {"year": 2012, "gdp": 383}, {"year": 2014, "gdp": 403}, {"year": 2016, "gdp": 358}, {"year": 2018, "gdp": 414}, {"year": 2020, "gdp": 359}, {"year": 2022, "gdp": 507}, {"year": 2024, "gdp": 530}
+  ]},
+  { "country": "Nigeria", "code": "NG", "values": [
+    {"year": 2000, "gdp": 70}, {"year": 2002, "gdp": 77}, {"year": 2004, "gdp": 98}, {"year": 2006, "gdp": 222}, {"year": 2008, "gdp": 330}, {"year": 2010, "gdp": 369}, {"year": 2012, "gdp": 461}, {"year": 2014, "gdp": 569}, {"year": 2016, "gdp": 404}, {"year": 2018, "gdp": 397}, {"year": 2020, "gdp": 432}, {"year": 2022, "gdp": 477}, {"year": 2024, "gdp": 510}
+  ]},
+  { "country": "Kenya", "code": "KE", "values": [
+    {"year": 2000, "gdp": 13}, {"year": 2002, "gdp": 14}, {"year": 2004, "gdp": 17}, {"year": 2006, "gdp": 22}, {"year": 2008, "gdp": 30}, {"year": 2010, "gdp": 40}, {"year": 2012, "gdp": 50}, {"year": 2014, "gdp": 61}, {"year": 2016, "gdp": 67}, {"year": 2018, "gdp": 88}, {"year": 2020, "gdp": 101}, {"year": 2022, "gdp": 113}, {"year": 2024, "gdp": 125}
+  ]}
+]
