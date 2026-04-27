@@ -3,6 +3,12 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Users } from 'lucide-react';
 
+type LenisControls = {
+  scrollTo: (target: HTMLElement | number, options?: { duration?: number }) => void;
+  start?: () => void;
+  stop?: () => void;
+};
+
 const NAV_LINKS = [
   { label: 'The Problem', id: 'problem' },
   { label: 'Pillars', id: 'pillars' },
@@ -86,12 +92,18 @@ export default function Navigation() {
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
+    const lenis = (window as typeof window & { __lenis?: LenisControls }).__lenis;
+
     if (mobileOpen) {
+      lenis?.stop?.();
       document.body.style.overflow = 'hidden';
     } else {
+      lenis?.start?.();
       document.body.style.overflow = '';
     }
+
     return () => {
+      lenis?.start?.();
       document.body.style.overflow = '';
     };
   }, [mobileOpen]);
@@ -122,10 +134,34 @@ export default function Navigation() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const scrollTo = useCallback((id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-    setMobileOpen(false);
+  const scrollWithEngine = useCallback((target: HTMLElement | number) => {
+    const lenis = (window as typeof window & { __lenis?: LenisControls }).__lenis;
+
+    if (lenis) {
+      lenis.scrollTo(target, { duration: 1 });
+      return;
+    }
+
+    if (typeof target === 'number') {
+      window.scrollTo({ top: target, behavior: 'smooth' });
+      return;
+    }
+
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, []);
+
+  const scrollTo = useCallback((id: string) => {
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    scrollWithEngine(target);
+    setMobileOpen(false);
+  }, [scrollWithEngine]);
+
+  const scrollToTop = useCallback(() => {
+    scrollWithEngine(0);
+    setMobileOpen(false);
+  }, [scrollWithEngine]);
 
   return (
     <>
@@ -147,7 +183,7 @@ export default function Navigation() {
         <div className="section-container flex items-center justify-between h-16 lg:h-[72px]">
           {/* Logo */}
           <button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            onClick={scrollToTop}
             className="flex items-center gap-2 group tap-target"
             aria-label="Scroll to top"
           >

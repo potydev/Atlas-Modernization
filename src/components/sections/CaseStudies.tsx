@@ -18,6 +18,10 @@ const countryFlags: Record<string, string> = {
   'south-korea': '🇰🇷',
 };
 
+type LenisScroll = {
+  scrollTo: (target: number, options?: { duration?: number }) => void;
+};
+
 export default function CaseStudies() {
   const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -37,22 +41,21 @@ export default function CaseStudies() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Desktop: Horizontal scroll using CSS sticky + GSAP scrub (NO pin)
+  // Desktop: Horizontal scroll with pinned viewport + smoother scrub/snap
   useEffect(() => {
-    if (isMobile) return;
+    if (isMobile) {
+      scrollTriggerRef.current = null;
+      return;
+    }
 
     const section = sectionRef.current;
     const track = trackRef.current;
     if (!section || !track) return;
 
-    const totalScroll = () => (caseStudies.length - 1) * window.innerWidth;
-
-    // Set section height = 1 viewport + scroll distance
-    // This creates the vertical scroll space needed for the horizontal animation
-    const setSectionHeight = () => {
-      section.style.height = `${window.innerHeight + totalScroll()}px`;
-    };
-    setSectionHeight();
+    const totalSlides = caseStudies.length - 1;
+    const totalScroll = () => totalSlides * window.innerWidth;
+    // Slightly longer vertical distance makes horizontal motion feel smoother.
+    const desktopScrollDistance = () => totalScroll() * 1.15;
 
     const ctx = gsap.context(() => {
       gsap.to(track, {
@@ -61,9 +64,22 @@ export default function CaseStudies() {
         scrollTrigger: {
           trigger: section,
           start: 'top top',
-          end: () => `+=${totalScroll()}`,
-          scrub: 1,
+          end: () => `+=${desktopScrollDistance()}`,
+          pin: true,
+          pinSpacing: true,
+          pinReparent: true,
+          scrub: 1.2,
+          anticipatePin: 1.5,
+          snap: {
+            snapTo: (value: number) => Math.round(value * totalSlides) / totalSlides,
+            duration: { min: 0.15, max: 0.45 },
+            delay: 0.05,
+            ease: 'power2.out',
+          },
           invalidateOnRefresh: true,
+          onRefresh: (self) => {
+            scrollTriggerRef.current = self;
+          },
           onUpdate: (self) => {
             const slideIndex = Math.round(self.progress * (caseStudies.length - 1));
             if (slideIndex !== lastSlideIndexRef.current) {
@@ -76,15 +92,9 @@ export default function CaseStudies() {
       });
     }, sectionRef);
 
-    const handleResize = () => {
-      setSectionHeight();
-      ScrollTrigger.refresh();
-    };
-    window.addEventListener('resize', handleResize);
-
     return () => {
       ctx.revert();
-      window.removeEventListener('resize', handleResize);
+      scrollTriggerRef.current = null;
     };
   }, [isMobile]);
 
@@ -124,10 +134,16 @@ export default function CaseStudies() {
         const st = scrollTriggerRef.current;
         const progress = index / (caseStudies.length - 1);
         const scrollTarget = (st.start ?? 0) + progress * ((st.end ?? 0) - (st.start ?? 0));
-        window.scrollTo({
-          top: scrollTarget,
-          behavior: 'smooth',
-        });
+        const lenis = (window as typeof window & { __lenis?: LenisScroll }).__lenis;
+
+        if (lenis) {
+          lenis.scrollTo(scrollTarget, { duration: 1 });
+        } else {
+          window.scrollTo({
+            top: scrollTarget,
+            behavior: 'smooth',
+          });
+        }
       }
     },
     [isMobile]
@@ -256,9 +272,9 @@ export default function CaseStudies() {
         </>
       )}
 
-      {/* ============ DESKTOP: CSS Sticky + GSAP horizontal scrub ============ */}
+      {/* ============ DESKTOP: GSAP Pin + horizontal scrub ============ */}
       {!isMobile && (
-        <div className="sticky top-0 h-screen overflow-hidden relative">
+        <div className="h-screen overflow-hidden relative">
           {/* Progress bar */}
           <div className="absolute top-0 left-0 right-0 h-1.5 bg-white/5 z-30">
             <div
